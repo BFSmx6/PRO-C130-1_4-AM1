@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 from pynput.keyboard import Key, Controller
-
+import pyautogui
 keyboard = Controller()
 
 cap = cv2.VideoCapture(0)
