@@ -17,64 +17,64 @@ hands = mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5
 tipIds = [4, 8, 12, 16, 20]
 
 
-# Define a function to count fingers
+# Define una función para contar los dedos
 def countFingers(image, hand_landmarks, handNo=0):
 
     if hand_landmarks:
-        # Get all Landmarks of the FIRST Hand VISIBLE
+        # Obtén todos los puntos de referencia de la PRIMERA MANO VISIBLE
         landmarks = hand_landmarks[handNo].landmark
 
-        # Count Fingers        
+        # Contar dedos        
         fingers = []
 
         for lm_index in tipIds:
-                # Get Finger Tip and Bottom y Position Value
+                # Obtén la punta del dedo y el valor de posición Y inferior
                 finger_tip_y = landmarks[lm_index].y 
                 finger_bottom_y = landmarks[lm_index - 2].y
 
-                # Check if ANY FINGER is OPEN or CLOSED
+                # Revisa si los dedos están abiertos o cerrados
                 if lm_index !=4:
                     if finger_tip_y < finger_bottom_y:
                         fingers.append(1)
-                        # print("FINGER with id ",lm_index," is Open")
+                        # imprime ("El dedo con el id ",lm_index," está abierto")
 
                     if finger_tip_y > finger_bottom_y:
                         fingers.append(0)
-                        # print("FINGER with id ",lm_index," is Closed")
+                        # imprimir ("El dedo con el id ",lm_index," está cerrado")
 
         totalFingers = fingers.count(1)
         
-        # PLAY or PAUSE a Video
+        # Reproduce o pausa un video
         
         ################################
 
-             # ADD CODE HERE #
+             # AGREGA EL CÓDIGO AQUÍ #
 
         ################################
         
 
-         # Move Video FORWARD & BACKWARDS 
+         # Adelanta o regresa el video
          
         ################################
 
-             # ADD CODE HERE #
+             # AGREGA EL CÓDIGO AQUÍ #
 
         ################################ 
         ################################
 
-        # Increase and decrease volume #
+        # Aumenta o disminuye el volumen #
 
         ################################ 
         ################################
 
-             # ADD CODE HERE #
+             # AGREGA EL CÓDIGO AQUÍ #
 
         ################################ 
         
-# Define a function to 
+# Define una función para 
 def drawHandLanmarks(image, hand_landmarks):
 
-    # Darw connections between landmark points
+    # Establece conexiones entre puntos de referencia
     if hand_landmarks:
 
       for landmarks in hand_landmarks:
@@ -88,21 +88,21 @@ while True:
 
     image = cv2.flip(image, 1)
     
-    # Detect the Hands Landmarks 
+    # Detecta los puntos de referencia de las manos 
     results = hands.process(image)
 
-    # Get landmark position from the processed result
+    # Obtén la posición del punto de referencia del resultado procesado
     hand_landmarks = results.multi_hand_landmarks
 
-    # Draw Landmarks
+    # Establece los puntos de referncia
     drawHandLanmarks(image, hand_landmarks)
 
-    # Get Hand Fingers Position        
+    # Obtén la posición de los dedos de la mano        
     countFingers(image, hand_landmarks)
 
-    cv2.imshow("Media Controller", image)
+    cv2.imshow("Controlador de medios", image)
 
-    # Quit the window on pressing Sapcebar key
+    # Sal de la ventana al presionar la barra espaciadora
     key = cv2.waitKey(1)
     if key == 27:
         break
