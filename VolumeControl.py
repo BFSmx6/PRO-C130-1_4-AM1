@@ -36,11 +36,11 @@ def countFingers(image, hand_landmarks, handNo=0):
                 if lm_index !=4:
                     if finger_tip_y < finger_bottom_y:
                         fingers.append(1)
-                        # imprime ("El dedo con el id ",lm_index," está abierto")
+                        # Imprime ("El dedo con el id ",lm_index," está abierto")
 
                     if finger_tip_y > finger_bottom_y:
                         fingers.append(0)
-                        # imprimir ("El dedo con el id ",lm_index," está cerrado")
+                        # Imprime ("El dedo con el id ",lm_index," está cerrado")
 
         totalFingers = fingers.count(1)
         
