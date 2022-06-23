@@ -28,7 +28,7 @@ def countFingers(image, hand_landmarks, handNo=0):
         fingers = []
 
         for lm_index in tipIds:
-                # Obtén la punta del dedo y el valor de posición Y inferior
+                # Obtén la posición Y de la punta y parte baja del dedo
                 finger_tip_y = landmarks[lm_index].y 
                 finger_bottom_y = landmarks[lm_index - 2].y
 
