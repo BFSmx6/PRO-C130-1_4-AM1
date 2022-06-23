@@ -94,7 +94,7 @@ while True:
     # Obtén la posición del punto de referencia del resultado procesado
     hand_landmarks = results.multi_hand_landmarks
 
-    # Establece los puntos de referncia
+    # Establece los puntos de referencia
     drawHandLanmarks(image, hand_landmarks)
 
     # Obtén la posición de los dedos de la mano        
